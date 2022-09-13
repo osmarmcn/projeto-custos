@@ -6,6 +6,7 @@ import Projeto from './paginas/Projeto';
 import Container from './componentes/Container';
 import Menu from './componentes/Inicial/Menu';
 import Footer from './componentes/Inicial/Footer';
+import NovoProjeto from './paginas/NovoProjeto';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
               <Route path='/Contato' element={<Contato/>}/>
               <Route path='/Empresa' element={<Empresa/>}/>
               <Route path='/Projeto' element={<Projeto/>}/>
+              <Route path='/NovoProjeto' element={<NovoProjeto/>}/>
+              
             </Routes>
         </Container>
         <Footer/>

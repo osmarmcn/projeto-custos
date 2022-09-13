@@ -1,0 +1,20 @@
+.projeto{
+    width:600px ;
+    margin: 0 auto;
+    padding: 3em;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.projeto h1{
+    margin-bottom: 00.5em;
+}
+.projeto p{
+    color: #7b7b7b;
+}
+.projeto form{
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+}

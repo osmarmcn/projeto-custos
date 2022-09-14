@@ -2,7 +2,7 @@ import styles from "../Layout/input.module.css"
 
 
 
-const Input = ({type, placeholder,name, text, hanleonChange,value}) =>{
+const Input = ({type, placeholder,name, text, hanleOnChange,value}) =>{
 
     return(
         <div className={styles.form_control}>
@@ -13,7 +13,7 @@ const Input = ({type, placeholder,name, text, hanleonChange,value}) =>{
                 name={name}
                 id={name} 
                 placeholder={placeholder}
-                onChange={hanleonChange}
+                onChange={hanleOnChange}
                 defaultValue={value}
             />
         </div>

@@ -6,10 +6,10 @@ import Select from "./Select"
 import ButtonSubmit from './ButtonSubmit'
 
 
-const ProjetoForm = (handleSubmit, projetoData) =>{
+const ProjetoForm = ({handleSubmit, projectData}) =>{
 
     const [categorias,setCategorias] = useState([])
-    const [projeto,setProjeto] = useState(projetoData || {})
+    const [project,setProject] = useState(projectData || {})
 
     useEffect(() =>{
         fetch("http://localhost:5000/categorias",{
@@ -18,7 +18,7 @@ const ProjetoForm = (handleSubmit, projetoData) =>{
                 'content-type':'aplication/json',
             },
         })
-        .then((Response) => Response.json()) 
+        .then((resp) => resp.json()) 
         .then((data) =>{
             setCategorias(data)
         })
@@ -28,21 +28,20 @@ const ProjetoForm = (handleSubmit, projetoData) =>{
     const submit = (e) =>{
         e.preventDefault()
         //console.log(project)
-        handleSubmit(projeto)
+        handleSubmit(project)
     }
 
     function handleChange(e){
-        setProjeto({...projeto,[e.target.name]: e.target.value })
+        setProject({...project,[e.target.name]: e.target.value })
+        //console.log(project)
        
         
     }
 
     function handleCategory(e){
-        setProjeto({...projeto, category:{
+        setProject({...project, category:{
             id: e.target.value,
-            name: e.target.options[e.target.selectIndex].text
-           
-
+            name: e.target.options[e.target.selectIndex]
         }, 
     })
     
@@ -56,8 +55,8 @@ const ProjetoForm = (handleSubmit, projetoData) =>{
                     text='Nome do projeto'
                     name='name'
                     placeholder='insira seu nome'
-                    handleonchange={handleChange}
-                    defaultValue={projeto.name ? projeto.name : ''}
+                    handleOnchange={handleChange}
+                    defaultValue={project.name ? project.name : ''}
                 />
                  <Input
                     type='number'
@@ -65,15 +64,15 @@ const ProjetoForm = (handleSubmit, projetoData) =>{
                     text='Orçamento do projeto'
                     name='budget'
                     placeholder='insira o orçamento total'
-                    handleonchange={handleChange}
-                    defaultValue={projeto.budget? projeto.budget : ''}
+                    handleOnchange={handleChange}
+                    defaultValue={project.budget? project.budget : ''}
                 />
                 <Select 
                     name='categoria_id' 
                     text='Selecione a categoria' 
                     options={categorias}
                     hanleOnChange={handleCategory}
-                    defaultValue={projeto.category ? projeto.category.id : ''}
+                    defaultValue={project.category ? project.category.id : ''}
                     
 
                 />
